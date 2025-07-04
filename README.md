@@ -16,5 +16,3 @@ The code is in SimulationofaP2pCryptocurrencyNetwork notebook and is divided and
 - heapq
 - matplot 
 - networkx 
-
-The debugging and reading observations of the simulator have still not been done yet (until 27th).The structure and code logic is clear though.
