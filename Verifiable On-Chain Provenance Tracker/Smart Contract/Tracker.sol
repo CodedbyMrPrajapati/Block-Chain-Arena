@@ -35,7 +35,7 @@ contract tracker {
         items[id].owner = newOwner;
         emit OwnershipTransferred(id, prevowner, newOwner);
     }
-    function getItem(uint256 id) public view returns (uint256, string memory, address) {
+    function getItem(uint256 id) public view returns (string memory, string memory) {
         require(id > 0 && id < currid, "Item does not exist.");
         return (items[id].description, items[id].imageUrl);
     }

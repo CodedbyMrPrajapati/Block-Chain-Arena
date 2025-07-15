@@ -71,8 +71,42 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getItem",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_imageUrl",
 						"type": "string"
 					}
 				],
@@ -128,11 +162,11 @@
 	},
 	"sources": {
 		"Verifiable On-Chain Provenance Tracker/Smart Contract/Tracker.sol": {
-			"keccak256": "0xd1cb9c10dcbb915e7363b0e3187b6fd7ad1678abedc423f71805423db2fe173f",
+			"keccak256": "0xeba39e185fb42e72fbc519b6751d14a1cd926b7d689352ce961a8f4bfe845821",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89ca7bb82f93b55dc9368012d594b0ae6cd971ac214ab6a149b40eeaa62d553c",
-				"dweb:/ipfs/QmPgg3xNakswbe9cnrZXoKQ6XudL82uQ8oKkRpT1izWRyd"
+				"bzz-raw://271acaee6e137c299df0726fe882898c8cc9f60e070d30be2fa7a410a00ab05e",
+				"dweb:/ipfs/QmebPYEZyerb1h7z2toSzfUJGamLsD9qXBdtuPVYUUmfZx"
 			]
 		}
 	},
