@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapp</title>
+    <link rel = "stylesheet" href = "styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <nav>
+        <div class="brand">Welcome</div>
+        <ul>
+        <li><a href="#" data-target="home">Home</a></li>
+        <li><a href="#" data-target="Register">Register Item</a></li>
+        <li><a href="#" data-target="displayItems">Display Items</a></li>
+        <li><a href="#" data-target="transfer">Transfer</a></li>
+        <li><a href="#" data-target="provenance">Provenance</a></li>
+        </ul>
+        <!-- <button id="themeToggle">Toggle Theme</button> -->
+         <button id="themeToggle" aria-label="Toggle theme">Light</button>
+    </nav>
+    <main>
+        <section id="home" class="tab-section">
+            <h1 class = "fade-inleft">Welcome User</h1>
+            <h2 class = "fade-inleft">Connect Your Wallet</h2>
+            <button id="connectButton">Connect Wallet</button>
+            <div id="hometabfeedbacks"></div>
+        </section>
+        <section id="Register" class="tab-section">
+            <h1 class = "fade-inleft">Register New Item</h1>
+            <form id="RegisterForm">
+                <label for="itemName">Item Name:</label>
+                <br>
+                <input type="text" id="itemName" name="itemName">
+                <label for="itemDescription">Item Description:</label>
+                <br>
+                <input type="text" id="itemDescription" name="itemDescription">
+                <label for="itemImage">Item Image URL:</label>
+                <input type="text" id="itemImage" name="itemImage" placeholder="https://example.com/image.png">
+                <button type="button" id="RegisterFormbutton">Register Item</button>
+                <br>
+            </form>
+            <div id="registrationfeedback"></div>
+        </section>
+        <section id="displayItems" class="tab-section">
+            <h1 class="fade-inleft">Display All Items</h1>
+            <button id="displayItemsButton">Display Items</button>
+            <div id="displayItemfeedback"></div>
+            <div id="itemsContainer" class="items-grid">
+                <div class="item-card falldown">
+                    <div class="item-image">
+                        <!-- Either an <img> OR fallback text -->
+                        <img src="../../network.png" alt="Inbox Image" />
+                        <!-- fallback text if no image -->
+                    <div class="image-fallback">N/A</div>
+                </div>
+                <div class="item-content">
+                    <h2 class="item-name">Inbox</h2>
+                    <p class="item-description">Sample item description goes here.</p>
+                    <p class="item-owner">Owner: 0x1234...abcd</p>
+                </div>
+            </div>
+            <div class="item-card falldown">
+                <div class="item-image">
+                    <!-- Either an <img> OR fallback text -->
+                    <!-- <img src="../../network.png" alt="Inbox Image" /> -->
+                    <!-- fallback text if no image -->
+                    <div class="image-fallback">N/A</div>
+                </div>
+                <div class="item-content">
+                    <h2 class="item-name">Inbox</h2>
+                    <p class="item-description">Sample item description goes here.</p>
+                    <p class="item-owner">Owner: 0x1234...abcd</p>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section id="transfer" class="tab-section">
+            <h1 class = "fade-inleft">Transfer Ownership</h1>
+            <form id="transferForm">
+                <label for="itemId">Item ID:</label>
+                <br>
+                <input type="text" id="itemIdForTransfer" name="itemId" required>
+                <br>
+                <label for="newOwner">New Owner Address:</label>
+                <br>
+                <input type="text" id="newOwner" name="newOwner" required>
+                <br>
+                <button id = "transferbutton" type="button">Transfer Ownership</button>
+            </form>
+            <div id="transferfeedback"></div>
+        </section>
+        <section id="provenance" class="tab-section">
+            <h1 class = "fade-inleft">View Provenance</h1>
+                <label for="itemIdForProvenance">Item ID:</label>
+                <br>
+                <input type="text" id="itemIdForProvenance" name="itemIdForProvenance" required>
+                <br>
+                <button id="provenanceButton" type="button">View Provenance</button>
+                <br>
+            <ul id="provenanceList" class="provenance-list">
+                <li class="falldown"><span class="from">Alice</span> → <span class="to">Bob</span></li>
+                <li class="falldown"><span class="from">Bob</span> → <span class="to">Charlie</span></li>
+                <li class="falldown"><span class="from">Charlie</span> → <span class="to">Dave</span></li>
+            </ul>
+            <div id="provenanceFeedback"></div>
+        </section>
+    </main>
+</body>
+</html>
