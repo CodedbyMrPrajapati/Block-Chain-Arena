@@ -50,33 +50,14 @@
             <button id="displayItemsButton">Display Items</button>
             <div id="displayItemfeedback"></div>
             <div id="itemsContainer" class="items-grid">
-                <div class="item-card falldown">
-                    <div class="item-image">
-                        <!-- Either an <img> OR fallback text -->
-                        <img src="../../network.png" alt="Inbox Image" />
-                        <!-- fallback text if no image -->
-                    <div class="image-fallback">N/A</div>
-                </div>
-                <div class="item-content">
-                    <h2 class="item-name">Inbox</h2>
-                    <p class="item-description">Sample item description goes here.</p>
-                    <p class="item-owner">Owner: 0x1234...abcd</p>
-                </div>
             </div>
-            <div class="item-card falldown">
-                <div class="item-image">
-                    <!-- Either an <img> OR fallback text -->
-                    <!-- <img src="../../network.png" alt="Inbox Image" /> -->
-                    <!-- fallback text if no image -->
-                    <div class="image-fallback">N/A</div>
-                </div>
-                <div class="item-content">
-                    <h2 class="item-name">Inbox</h2>
-                    <p class="item-description">Sample item description goes here.</p>
-                    <p class="item-owner">Owner: 0x1234...abcd</p>
-                </div>
+            <div class="item-card falldown" onhover='showFullItemDesc("Hello World")'>
             </div>
+            
         </div>
+        <div id = "fullitemdesc" style="display: none;">
+        </div>
+
         </section>
 
         <section id="transfer" class="tab-section">
@@ -103,9 +84,6 @@
                 <button id="provenanceButton" type="button">View Provenance</button>
                 <br>
             <ul id="provenanceList" class="provenance-list">
-                <li class="falldown"><span class="from">Alice</span> → <span class="to">Bob</span></li>
-                <li class="falldown"><span class="from">Bob</span> → <span class="to">Charlie</span></li>
-                <li class="falldown"><span class="from">Charlie</span> → <span class="to">Dave</span></li>
             </ul>
             <div id="provenanceFeedback"></div>
         </section>

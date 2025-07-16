@@ -1,4 +1,5 @@
 :root {
+
   --bg-color: hsl(50, 70%, 97%);        /* Cream/light */
   --text-color: hsl(210, 15%, 15%);     /* Dark gray/near black */
   --primary-color: hsl(210, 80%, 50%);  /* Blue */
@@ -11,6 +12,9 @@
   --error: hsl(0, 90%, 70%);  
   --success : hsl(100,90%,40%);          /* Red for error messages */
   --button-bg-hover: hsl(210, 80%, 40%); /* Slightly darker blue on hover */
+  --light-bg : hsl(0, 0%, 11%,0.5); /* Light background for sections */
+  --desc-text : hsl(189, 92%, 80%); /* Dark gray for descriptions */
+  --confirmation-color: hsl(120, 80%, 70%); /* Green for confirmation */
 }
 
 body.dark {
@@ -26,6 +30,9 @@ body.dark {
   --error: hsl(0, 80%, 50%);            /* Red for error messages */
   --success : hsl(100,90%,70%);          /* Red for error messages */
   --button-bg-hover: hsl(45, 90%, 75%); /* Slightly darker yellow on hover */
+  --light-bg : hsla(61, 100%, 11%, 0.5); /* Light background for sections */
+  --desc-text : hsl(45, 90%, 85%); /* Light yellow for descriptions */
+  --confirmation-color: hsl(120, 80%, 40%); /* Lighter green for confirmation */
 }
 
 * {
@@ -429,4 +436,37 @@ body.dark #themeToggle {
     opacity: 0;
     transform: translateY(-20px); /* Fade-out completed, element disappears */
   }
+}
+#fullitemdesc {
+  background-color: var(--light-bg);
+  color: var(--desc-text);
+  padding: 1rem;
+  position : fixed;
+  bottom: 50px;
+  margin: 10%;
+  margin-bottom: 0;
+  align-items: center;
+  border-radius: 20px;
+  max-height: 20vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  max-width: 400px;
+  transition: all 0.3s ease-in-out;
+}
+
+#fullitemdesc::-webkit-scrollbar{
+  width: 8px;
+  background-color: transparent;
+  border-radius: 10px;
+  margin: 10px;
+}
+#fullitemdesc::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  margin-left : 10px;
+}
+#fullitemdesc::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin: 10px;
+  padding: 10px;
 }
