@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, graphicx, hyperref, listings, xcolor}
+\usepackage[margin=1in]{geometry}
+\title{\textbf{Blockchain Arena: Simulating Mining Wars and Network Attacks}}
+\author{Project 1 Report - Simulation of a P2P Cryptocurrency Network}
+\date{June 2025}
+
+\begin{document}
+\maketitle
+
+\section*{Objective}
+The goal of this project is to develop a discrete-event simulator that models a peer-to-peer (P2P) cryptocurrency network. The simulator implements network formation, transaction propagation, block creation and propagation, and consensus through longest chain protocol.
+
+\section*{Design Components}
+
+\subsection*{1. Peer-to-Peer Network (Network Class)}
+\begin{itemize}
+  \item Nodes are classified as \texttt{fast} or \texttt{slow}, and as \texttt{high CPU} or \texttt{low CPU} based on parameters $z_0$ and $z_1$.
+  \item Connections per peer are randomly selected in [3, 6].
+  \item Network is undirected and connected.
+  \item Each node is an instance of the \texttt{Peer} class.
+\end{itemize}
+
+\subsection*{2. Transaction Model (Transaction Class)}
+\begin{itemize}
+  \item Format: ``TxnID: IDx pays IDy C coins''.
+  \item Size fixed at 1KB.
+  \item Generated randomly using exponential distribution (mean $T_{tx}$).
+  \item \textbf{Why exponential?} Because it models memoryless inter-arrival time, mimicking Poisson arrivals commonly assumed in decentralized systems.
+\end{itemize}
+
+\subsection*{3. Latency Model}
+\begin{itemize}
+  \item Latency $L_{ij} = \rho_{ij} + \frac{|m|}{c_{ij}} + d_{ij}$.
+  \item $\rho_{ij}$ sampled from $\mathcal{U}(10ms, 500ms)$.
+  \item $|m|$ is message size in bits.
+  \item $c_{ij}$ is 100 Mbps if both peers are fast, else 5 Mbps.
+  \item $d_{ij} \sim \text{Exponential}(\frac{c_{ij}}{96k})$.
+  \item \textbf{Why inversely proportional to $c_{ij}$?} Because faster links reduce queuing times — typical in queuing theory.
+\end{itemize}
+
+\subsection*{4. Loop-less Forwarding}
+\begin{itemize}
+  \item Transactions are forwarded only to peers from which they were not received and not already sent to.
+  \item This avoids infinite propagation loops.
+\end{itemize}
+
+\subsection*{5. Blockchain and PoW Simulation}
+\begin{itemize}
+  \item Each peer maintains a \texttt{BlockchainTree} of received blocks.
+  \item Genesis block is inserted at $t=0$.
+  \item Blocks include valid transactions only and add coinbase transaction for miner (+50 coins).
+  \item Block is mined after $T_k \sim \text{Exponential}(I/h_k)$ where $h_k$ is peer's hash power.
+  \item \textbf{Why exponential $T_k$?} Poisson process modeling random block discovery.
+\end{itemize}
+
+\subsection*{6. Discrete-Event Simulation}
+\begin{itemize}
+  \item Central event queue handled by \texttt{Simulator} class.
+  \item Event types: \texttt{Gen\_txn}, \texttt{Rec\_txn}, \texttt{Rec\_block}, \texttt{Gen\_block}.
+  \item Event ordering ensures causal simulation.
+\end{itemize}
+
+\section*{Files and Submission}
+\begin{itemize}
+  \item Code: \texttt{blockchain\_simulator.py}
+  \item README: Setup and execution instructions.
+  \item Report: This LaTeX document (\texttt{report.tex})
+\end{itemize}
+\end{document}
